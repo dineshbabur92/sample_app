@@ -1,29 +1,48 @@
+///
 The --without production option prevents the local installation of any production gems, which in this case consists of pg and rails_12factor. (If Bundler complains about a readline error, try adding gem 'rb-read\-line', '~> 0.4.2' to your Gemfile.)
 
+///
 # This should only be used if your Heroku deploy fails without it.
 $ rake assets:precompile
 $ git add .
 $ git commit -m "Add precompiled assets for Heroku"
 
+///
 Dependencies, gemlock issues and follow cmd instructions...
 bundle update railties ///used
 
+///
   $ ./configure && make && sudo make install
 commonly used to compile code on Unix systems (including Linux and Mac OS X).
 
+///
 Rake is Ruby make, a make-like language written in Ruby.
 
+///
 $ ./configure && make && sudo make install
 commonly used to compile code on Unix systems (including Linux and Mac OS X).
 
+///
 Rake is Ruby make, a make-like language written in Ruby.
 
+///
 $ bundle install --without production
 In case you’ve previously installed a version of a gem (such as Rails itself) other than the one specified by the Gemfile, it’s a good idea to update the gems with bundle update to make sure the versions match, and then run bundle install to make sure the Gemfile.lock file is fully up-to-date:
 
+///
 $ bundle update
 $ bundle install
 Note that in the second line it’s unnecessary to include --without production because it is a “remembered option”, which means that we don’t have to include it in future invocations of Bundler. Instead, we can write simply bundle install and production gems will be ignored automatically.2
 
+///
 ( me : to be compatible for the tutorial i guess )
 Note: If your app is missing secret_token.rb and has secrets.yml instead, it probably means you installed Rails 4.1 by mistake. In this case, uninstall Rails using gem uninstall rails and then reinstall it by following the instructions in Section 1.2.2.5.
+
+///
+rails generate controller StaticPages home help --no-test-framework
+Here we’ve used the option --no-test-framework to suppress the generation of the default RSpec tests, which we won’t be using. Instead, we’ll create the tests by hand starting in Section 3.2. We’ve also intentionally left off the about action from the command line arguments in Listing 3.4 so that we can see how to add it using test-driven development, or TDD (Section 3.2).
+
+In Listing 3.4, note that we have passed the controller name as so-called CamelCase, which leads to the creation of a controller file written in snake case, so that a controller called StaticPages yields a file called static_pages_controller.rb. This is merely a convention, and in fact using snake case at the command line also works: the command
+
+$ rails generate controller static_pages ...
+also generates a controller called static_pages_controller.rb. Because Ruby uses CamelCase for class names (Section 4.4), my preference is to refer to controllers using their CamelCase names, but this is a matter of taste. (Since Ruby filenames typically use snake case, the Rails generator converts CamelCase to snake case using the underscore method.)

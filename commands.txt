@@ -93,8 +93,23 @@ starting rails console ( me : to check data models i guess ) and exiting
 
 gem uninstall rails
 
+gem install rspec
 rails generate rspec:install
 
 //start
 we need to configure Rails to use RSpec in place of Test::Unit. This can be accomplished with rails generate rspec:install:
 //end
+
+
+ git checkout -b static-pages
+ 
+ $ rails generate controller FooBars baz quux
+  $ rails destroy  controller FooBars baz quux
+  
+  //( me : bax quux exact arguements used to destroy entries in routes.rb files too i guess//
+  
+  
+  
+  
+ 
+ 
