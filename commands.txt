@@ -103,13 +103,36 @@ we need to configure Rails to use RSpec in place of Test::Unit. This can be acco
 
  git checkout -b static-pages
  
+ 
+ rails generate controller StaticPages home help --no-test-framework
+ 
+ 
  $ rails generate controller FooBars baz quux
   $ rails destroy  controller FooBars baz quux
   
   //( me : bax quux exact arguements used to destroy entries in routes.rb files too i guess//
   
+   $ rails generate model Foo bar:string baz:integer
+//This can be undone using
+
+  $ rails destroy model Foo
+  
+   $ rake db:migrate
+//We can undo a single migration step using
+
+  $ rake db:rollback
+//To go all the way back to the beginning, we can use
+
+  $ rake db:migrate VERSION=0
+  
+  //As you might guess, substituting any other number for 0 migrates to that version number, where the version numbers come from listing the migrations sequentially.///
   
   
+  rake routes
   
- 
- 
+  ///( me : displays routes i guess, not sure )
+  
+rails generate integration_test static_pages
+  
+bundle exec rspec spec/requests/static_pages_spec.rb
+
