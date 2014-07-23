@@ -94,6 +94,7 @@ starting rails console ( me : to check data models i guess ) and exiting
 gem uninstall rails
 
 gem install rspec
+//gem install rspec-rails -v 2.13.1
 rails generate rspec:install
 
 //start
@@ -136,3 +137,55 @@ rails generate integration_test static_pages
   
 bundle exec rspec spec/requests/static_pages_spec.rb
 
+///not used
+
+$ rvm get stable
+$ rvm -v
+
+$ rspec spec/
+
+$ rvm get head && rvm reload
+$ chmod +x $rvm_path/hooks/after_cd_bundler
+
+$ cd ~/rails_projects/sample_app
+$ bundle install --without production --binstubs=./bundler_st
+
+$ bundle install --binstubs=./bundler_stubs
+
+////
+
+$ gem install rubygems-bundler
+$ gem regenerate_binstubs
+
+$ bundle install
+$ bundle exec guard init rspec
+bundle exec guard
+
+
+
+$ mkdir spec/routing
+///
+If you get a Guard error complaining about the absence of a spec/routing directory.
+///
+
+
+bundle install
+bundle exec spork --bootstrap
+
+time bundle exec rspec spec/requests/static_pages_spec.rb
+///( me : time is not valid in windows i guess, search and try for any other command )
+///
+
+
+bundle exec spork
+time bundle exec rspec spec/requests/static_pages_spec.rb --drb
+
+bundle exec rspec spec/requests/static_pages_spec.rb --drb
+
+
+bundle exec guard init spork
+///
+Spork is especially useful when used with Guard, which we can arrange as above.
+///
+
+bundle exec guard
