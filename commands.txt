@@ -202,3 +202,8 @@ $ bundle exec rake spec
 it’s worth noting (since you may see other people use it) that you
 can also run the test suite using the spec Rake task.
 ///
+
+git@heroku.com:dr92sampleapp.git
+///
+( me: heroku site :ref)
+///
