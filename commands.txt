@@ -207,3 +207,21 @@ git@heroku.com:dr92sampleapp.git
 ///
 ( me: heroku site :ref)
 ///
+
+
+heroku keys:add ~/.ssh/id_rsa.pub
+
+///so
+If you don't have a public key, Heroku will prompt you to add one automatically which works seamlessly. Just use:
+///so
+heroku keys:add
+
+///so
+To clear all your previous keys do :
+///so
+heroku keys:clear
+
+///so
+To display all your existing keys do :
+///so
+heroku keys
