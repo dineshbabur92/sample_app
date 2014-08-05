@@ -136,6 +136,15 @@ rails generate integration_test static_pages
   
 bundle exec rspec spec/requests/static_pages_spec.rb
 
+ruby dk.rb init
+ruby dk.rb install
+
+///
+cd to it, run “ruby dk.rb init” and “ruby dk.rb install” to bind it to ruby installations in your path.
+///
+
+gem install rdiscount --platform=ruby
+
 
 $ heroku create
 $ git push heroku master
