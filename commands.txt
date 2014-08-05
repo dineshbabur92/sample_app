@@ -185,3 +185,20 @@ git remote -v
 git remote rm heroku
 git remote add heroku git@heroku.com:electric-meadow-15.git
 
+rails generate controller Users new --no-test-framework
+
+rails generate integration_test user_pages
+bundle exec rspec spec/requests/
+///
+It’s worth noting that wecan also run all therequest specs by passing the whole directory
+instead of just one file.
+///
+$ bundle exec rspec spec/
+///
+Based on this pattern, you may be able to guess how to run all the specs:
+///
+$ bundle exec rake spec
+///
+it’s worth noting (since you may see other people use it) that you
+can also run the test suite using the spec Rake task.
+///
