@@ -1,0 +1,2 @@
+NoMethodError: undefined method `dump_schema_after_migration=' for ActiveRecord:
+:Base:Class

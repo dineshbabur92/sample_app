@@ -136,3 +136,43 @@ rails generate integration_test static_pages
   
 bundle exec rspec spec/requests/static_pages_spec.rb
 
+
+$ heroku create
+$ git push heroku master
+$ heroku run rake db:migrate
+
+
+$ rake assets:precompile
+///
+(As noted in Section 1.4.1, some readers have reported needing to precompile static assets (such as CSS and images).
+This should only be used if your Heroku deploy fails without it.This shouldn’t be necessary, and I have been unable to reproduce the issue, but the reports are common enough that I include it here for reference
+///
+
+$ git add .
+$ git commit -m "Add precompiled assets for Heroku"
+$ git push heroku master
+
+
+$ git push
+$ git push heroku
+$ heroku run rake db:migrate
+
+$ heroku logs
+///
+If you run into problems at Heroku, make sure to take a look at the production logs to try to diagnose the problem.
+///
+
+git rm public/index.html
+///
+if you’re using Git for version control
+there’s a way to tell Git about the removal at the same time.
+///
+
+git remote -v
+///
+( me: shows all remotes, i guess )
+///
+
+git remote rm heroku
+git remote add heroku git@heroku.com:electric-meadow-15.git
+

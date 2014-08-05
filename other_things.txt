@@ -46,3 +46,13 @@ In Listing 3.4, note that we have passed the controller name as so-called CamelC
 
 $ rails generate controller static_pages ...
 also generates a controller called static_pages_controller.rb. Because Ruby uses CamelCase for class names (Section 4.4), my preference is to refer to controllers using their CamelCase names, but this is a matter of taste. (Since Ruby filenames typically use snake case, the Rails generator converts CamelCase to snake case using the underscore method.)
+
+///
+The config dump_schema_after_migration didn't exist in Rails 4.0.4 .
+
+You got the error because you deployed initially with Rails v4.1.0rc1 and switched over to v4.0.4 later. What really happened is that when you generated your app with rails 4.1.0rc, the generator put the config dump_schema_after_migration into your config/environments/production.rb and Rails 4.1.0rc1's code has this to support this config :
+
+mattr_accessor :dump_schema_after_migration
+Hence everything works fine in v4.1.0rc1. But when you moved back to v4.0.4, the config is still there in config/environments/production.rb , but the Rails code no longer knows how to read this config. To solve this, either stick with Rails 4.1.0rc1 code, or remove the config from config/environments/production.rb when running on Rails 4.0.4.
+https://github.com/rails/rails/commit/8806768e9f1a2648085f7826d9a0032457182bdb
+
