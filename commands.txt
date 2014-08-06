@@ -225,3 +225,17 @@ heroku keys:clear
 To display all your existing keys do :
 ///so
 heroku keys
+
+ rails generate model User name:string email:string
+ 
+ bundle exec rake db:migrate
+ bundle exec rake db:rollback
+ bundle exec rake db:migrate
+ 
+ $ bundle exec annotate --position before
+ ///
+simply adds comments containing
+the data model to the model file.
+///
+ 
+ 

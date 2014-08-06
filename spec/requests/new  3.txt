@@ -1,0 +1,2 @@
+Failed to execute goal org.apache.hadoop:hadoop-maven-plugins:3.0.0-SNAP
+SHOT
