@@ -237,5 +237,14 @@ heroku keys
 simply adds comments containing
 the data model to the model file.
 ///
+bundle exec rake db:test:prepare
+
+rubular
+///
+( me: for bulding and testing regular expressions. )
+/// 
  
+ 
+ $ rails generate migration add_index_to_users_email
+ $ rails generate migration add_password_digest_to_users password_digest:string
  
