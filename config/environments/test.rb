@@ -37,4 +37,9 @@ SampleApp::Application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-end
+	require 'bcrypt'
+		silence_warnings do
+			BCrypt::Engine::DEFAULT_COST=BCrypt::Engine::MIN_COST
+		end
+	
+  end

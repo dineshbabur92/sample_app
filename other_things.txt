@@ -56,3 +56,8 @@ mattr_accessor :dump_schema_after_migration
 Hence everything works fine in v4.1.0rc1. But when you moved back to v4.0.4, the config is still there in config/environments/production.rb , but the Rails code no longer knows how to read this config. To solve this, either stick with Rails 4.1.0rc1 code, or remove the config from config/environments/production.rb when running on Rails 4.0.4.
 https://github.com/rails/rails/commit/8806768e9f1a2648085f7826d9a0032457182bdb
 
+///
+Digest::MD5::hexdigest(email.downcase)
+In rails console, to generate md5 hashes for email ids to store gravatars.
+Since email addresses are case-insensitive, but MD5 hashes are not, we’ve
+used the downcase method to ensure that the argument to hexdigest is all lower-case.
