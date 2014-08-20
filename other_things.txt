@@ -61,3 +61,12 @@ Digest::MD5::hexdigest(email.downcase)
 In rails console, to generate md5 hashes for email ids to store gravatars.
 Since email addresses are case-insensitive, but MD5 hashes are not, we’ve
 used the downcase method to ensure that the argument to hexdigest is all lower-case.
+
+///
+ bundle exec rake db:reset
+ bundle exec rake db:test:prepare
+ did not work. stack overflow mentioned as permission error and was asked to reboot.
+ 
+ ///
+ since i could not load any page after creating user, test threw an error so i had a page named create.html.erb to handle that.
+ 
