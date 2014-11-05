@@ -255,3 +255,7 @@ rubular
 ( me: to run tests with specific decription title- note: it does not take sub titles into account )
 ///
  
+ rails generate controller Sessions --no-test-framework
+ rails generate integration_test authentication_pages
+ 
+ 
