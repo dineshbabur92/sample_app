@@ -70,3 +70,4 @@ used the downcase method to ensure that the argument to hexdigest is all lower-c
  ///
  since i could not load any page after creating user, test threw an error so i had a page named create.html.erb to handle that.
  
+ 
