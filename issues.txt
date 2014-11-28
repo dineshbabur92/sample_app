@@ -1,0 +1,6 @@
++++++++++++spec/requests/user_pages_spec.rb++++++++++++
+############## see why this did not work##################
+            #describe "after saving the user" do
+            #   it{ should have_link('Sign out') }
+           #end
++++++++++++spec/requests/user_pages_spec.rb++++++++++++

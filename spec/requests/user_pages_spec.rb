@@ -26,8 +26,25 @@ describe "User pages" do
 			it "should create a user" do
 				expect{ click_button submit }.to change(User, :count).by(1)
 			end
+            ############## see why this did not work##################
+            #describe "after saving the user" do
+            #   it{ should have_link('Sign out') }
+           #end
 		end
-	end
+        describe "after saving the user" do
+          before do
+            fill_in "Name", with:"something"
+            fill_in "Email", with: "something@somethingtest.com";
+            fill_in "Password", with: "something"
+            fill_in "Confirmation", with: "something"
+            click_button "Create my account"
+          end
+          it{ should have_link( 'Sign out' ) }
+        end
+          
+    end
+        
+	
 	
 	describe "Profile Page" do
 		let(:user) { FactoryGirl.create(:user) }
@@ -35,7 +52,10 @@ describe "User pages" do
 		
 		it{	should have_selector('h1',text: user.name )}
 		it{ should have_title(user.name)}
+        
 	end
+    
+    
   # describe "GET /user_pages" do
     # it "works! (now write some real specs)" do
       # # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
