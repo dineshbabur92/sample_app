@@ -263,3 +263,9 @@ rubular
  bundle exec rake db:migrate
  bundle exec rake db:test:prepare
  bundle exec rspec spec/models/user_spec.rb
+ 
+ $ rails generate controller Sessions --no-test-framework
+ $ rails generate integration test authentication pages
+ 
+ $ bundle exec rspec spec/requests/authentication pages spec.rb \
+> -e "signin with invalid information"
