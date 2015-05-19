@@ -278,3 +278,10 @@ rubular
 $ rails console //for starting rails console
 
 $ bundle exec rspec spec/models/user spec.rb
+
+$ rails console
+>> User.first.remember token
+=> nil
+>> User.all.each { |user| user.save(validate: false) }
+>> User.first.remember token
+=> "Im9P0kWtZvD0RdyiK9UHtg"
