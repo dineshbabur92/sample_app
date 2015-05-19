@@ -270,18 +270,48 @@ rubular
  bundle exec rspec spec/models/user_spec.rb
  
  $ rails generate controller Sessions --no-test-framework
- $ rails generate integration test authentication pages
+ $ rails generate integration_test authentication_pages
  
- $ bundle exec rspec spec/requests/authentication pages spec.rb \
-> -e "signin with invalid information"
+ $ bundle exec rspec spec/requests/authentication_pages_spec.rb -e "signin with invalid information"
 
 $ rails console //for starting rails console
 
 $ bundle exec rspec spec/models/user spec.rb
 
 $ rails console
->> User.first.remember token
+>> User.first.remember_token
 => nil
 >> User.all.each { |user| user.save(validate: false) }
->> User.first.remember token
+>> User.first.remember_token
 => "Im9P0kWtZvD0RdyiK9UHtg"
+
+
+$ rails generate cucumber:install //install cucumber after adding cucumber gem to gemfile and executing bundle install
+
+
+notepad++ features/signing_in.feature //feature file for writing cucumber tests.
+
+$ bundle exec rake cucumber //In this context, it’s worth noting that, like RSpec, Cucumber can be invoked using aRake task // (For reasons that escape me, this is sometimes written as rake cucumber:ok.)
+
+notepad++ features/step_definitions/authentication_steps.rb //defining authentication steps(implementation of cucumber scenarios written in feature file) of features in feature file.
+
+heroku run console //running rails console in heroku
+
+//////////////////////////////////
+$ git add .
+$ git commit -m "Finish sign in"
+$ git checkout master
+$ git merge sign-in-out
+Then push up the remote GitHub repository and the Heroku production server:
+$ git push
+$ git push heroku
+$ heroku run rake db:migrate
+If you’ve created any users on the production server, I recommend following the steps
+in Section 8.2.4 to give each user a valid remember token. The only difference is using
+the Heroku console instead of the local one:
+$ heroku run console
+>> User.all.each { |user| user.save(validate: false) }
+//explaining the context of previous command
+/////////////////////////////////////
+
+
