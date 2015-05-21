@@ -314,4 +314,6 @@ $ heroku run console
 //explaining the context of previous command
 /////////////////////////////////////
 
+git checkout -b updating-users
+
 
