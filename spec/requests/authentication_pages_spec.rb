@@ -39,8 +39,8 @@ describe "Authentication" do
         describe "with valid information" do
           let(:user) { FactoryGirl.create(:user) }
           before do
-            fill_in "Email", with: user.email;
-            fill_in "Password", with:user.password;
+            fill_in "Email", with: user.email
+            fill_in "Password", with: user.password
             click_button "Sign in"
           end
           
@@ -57,7 +57,7 @@ describe "Authentication" do
             it{ should have_link('Sign in') }
           end
         end
-       
+    end  
 		describe "authorization" do
 			describe "for non-signed-in users" do
 				let(:user) { FactoryGirl.create(:user) }
@@ -65,7 +65,7 @@ describe "Authentication" do
 				describe "in the Uses controller" do
 					describe "visiting the edit page" do
 						before { visit edit_user_path(user) }
-						it {should have_selector("title", text:"Sign in" )}
+						it {should have_title("Sign in")}
 					end
 					describe "submitting to the update action" do
 						before { put user_path(user) }
@@ -75,14 +75,14 @@ describe "Authentication" do
 				
 				describe "when attempting to visit a protected page" do
 					before do
-						visit { edit_user_path(user) }
+						visit edit_user_path(user)
 						fill_in "Email", with: user.email
 						fill_in "Password", with: user.password
 						click_button "Sign in"
 					end
 					describe "after signing in" do
 						it "should render the desired protected page" do
-							page.should have_title{ "Edit user" }
+							page.should have_title("Edit user")
 						end
 					end
 				end	
@@ -103,6 +103,4 @@ describe "Authentication" do
 				end
 			end
 		end
-            
-	end
 end

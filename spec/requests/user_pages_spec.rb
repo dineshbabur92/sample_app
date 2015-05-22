@@ -70,7 +70,7 @@ describe "User pages" do
 			end
 			
 			describe "with invalid information" do
-				before { click_button "Save_changes" }
+				before { click_button "Save changes" }
 				
 				it { should have_content("error") }
 			end
@@ -87,8 +87,8 @@ describe "User pages" do
 					click_button "Save changes"
 				end
 				
-				it { should have_selector("title", text:new_name) }
-				it { should have_selector("div.alert.alert-success") }
+				it { should have_title(new_name) }
+				it { should have_selector("div.alert.alert-sucess") }
 				it{ should have_link("Sign out", href: signout_path)}
 				specify{ user.reload.name.should == new_name }
 				specify{ user.reload.email.should == new_email }
